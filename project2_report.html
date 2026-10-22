@@ -83,7 +83,7 @@
                 }
 
                 + li {
-                    margin-top: 0.2em;
+                    margin-top: 0.8em;
                 }
             }
 
@@ -102,6 +102,12 @@
             }
 
             /* Figures */
+
+            figure img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
 
             figure {
                 margin: 1em 0;
@@ -149,6 +155,8 @@
             </h1>
 
             <p><strong>Ethan Baquiran</strong> — <em>ebaquiran@ucsd.edu</em></p>
+            <p><strong>Bassam Hajjawi</strong> — <em>bhajjawi@ucsd.edu</em></p>
+            <p><strong>Nayan Bhatnagar</strong> — <em>nbhatnagar@ucsd.edu</em></p>
         </header>
 
         <main>
@@ -159,33 +167,35 @@
 
                 <figure>
                     <img src="for.png" alt="Line chart of global GDP per person and CO2 per person, both indexed to 100 in 1990. GDP per person rises to about 154. CO2 per person rises to about 115." />
-                    <figcaption>Since 1990, the global economy grew 54% per person while CO2 emissions per person rose just 15%. Source: World Bank World Development Indicators, 1990-2018. Global figures are population weighted.</figcaption>
+                    <figcaption>Since 1970, the global economy grew 105% per person while CO2 emissions per person rose just 17%. <br>Source: World Bank World Development Indicators, 1970-2018. Global figures are population weighted.</figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
 
                 <ul>
                     <li>
-                        <strong>Indexed both lines to 100 in 1990 (+1.5).</strong> GDP and CO2 use
-                        different units, so putting both on the same scale makes the gap easy to
-                        see. We also population-weighted the numbers to get global per-person
-                        values. The start year helps the story, which is a small slant.
+                        <strong>Standardized by measuring percentage change since 1970 (+1.5).</strong> GDP and CO2 use
+                        different units, so putting both on the same scale makes the gap easy to see.
+                        Displaying different units with two y-axes would have been hard to read, so we instead decided to convert values to percentages to make the visual clearer. Also, this helps comparing the final values for the two lines easier, since both values are percentages.
+                    </li>
+                    <li>
+                        <strong>Started from the year 1970, not 1960 (-1.5).</strong> The data we had access to actually starts at 1960, but we purposefully started at 1970 since the gap between the two lines is greatest when starting at this year than for other years. While this helps make the gap between the lines greater, a skeptical viewer might question why 1970 specifically is chosen, but this is not much of a problem since we made sure to choose a year dividable by 10, otherwise the starting year would seem too arbitrary.
                     </li>
                     <li>
                     <strong>Used emissions per person, not total (-1.5).</strong> Total
-                    emissions are up about 65% since 1990, which hurts our side. Per person
-                    looks much better, so we used that.
+                    emissions are up about 314% since 1960, which hurts our side. Per person
+                    looks much better, so we used that. One downside to this is that a clever viewer might realize how population has skyrocketed since 1970, but hopefully using GDP per capita as the other value might make the viewer focus more on per person change rather than absolute change.
                     </li>
                     <li>
                         <strong>Slanted title: "Growth Has Broken Away From Pollution" (-1).</strong>
                         "Broken away" sounds permanent and causal. The chart only shows two trends
                         moving apart. A neutral title would have been more honest and less
-                        persuasive.
+                        persuasive, so we made sure to describe the graph in a way which highlights the growing gap between the two lines.
                     </li>
                     <li>
-                        <strong>Teal for emissions, direct labels, y-axis from 90 to 165 (-0.5).</strong>
-                        Teal quietly says "good," and the tighter axis stretches the gap. The +54%
-                        and +15% labels give the takeaway with no legend. We also added a source
+                        <strong>Teal for emissions, direct labels, y-axis from -10 to 120 (-0.5).</strong>
+                        Teal quietly says "good," and the tighter axis stretches the gap. The +105%
+                        and +17% labels give the takeaway with no legend, which we felt would make the visual too crowded. We also added a source
                         note and said the figures are population weighted, which makes the chart
                         look more credible.
                     </li>
@@ -197,7 +207,7 @@
 
                 <figure>
                     <img src="against.png" alt="Line chart of total global CO2 emissions in gigatons per year, rising from about 20 Gt in 1990 to about 34 Gt in 2018." />
-                    <figcaption>Total CO2 emissions are about 65% higher than in 1990. Source: World Bank World Development Indicators, 1990-2018. Totals sum all reporting countries.</figcaption>
+                    <figcaption>Total CO2 emissions are about 314% higher than in 1960.<br>Source: World Bank World Development Indicators, 1960-2018. Totals sum all reporting countries.</figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
@@ -209,21 +219,20 @@
                     "winning" claim look weakest.
                 </li>
                 <li>
-                    <strong>Y-axis starts at 15 Gt, not 0 (-1.5).</strong> Going from 20 to 34 Gt looks very steep and looks like a big impact. The axis labels are visible however most readers will not realize that the axis is cut off
+                    <strong>Y-axis goes from 0 to 25 Gt (-0.5).</strong> Using a tight axis which barely contains the highest value makes the graph very steep and looks like a big impact. Using a tight y-axis is not as noticable since we are not cutting anything off, so it will help amplify our point without seeming very deceptive.
                 </li>
                 <li>
                     <strong>Title and label: "No Peak in Sight" and "still climbing" (-1.5).</strong>
-                    The line flattened between around 2013 and 2016 before rising again. These
-                    phrases skip that plateau and make a prediction the data does not support.
+                    The line somewhat flattened between 2013 and 2016 before rising again. These
+                    phrases ignore that plateau and make a bold prediction the data does not necessarily prove. While a careful viewer might notice how the line is starting to get flatter, the overall trend is still that the line is increasing, so most viewers will probably not notice how our phrasing might be inaccurate.
                 </li>
                 <li>
                     <strong>Red line and shaded area (-0.5).</strong> Red is generally read as alarm or something negative. The
-                    fill adds visual weight to the growth.
+                    fill adds visual weight to the growth, since it has a large area, which grows very quickly, creating a sense of danger in the viewer's mind.
                 </li>
                 <li>
-                    <strong>1990 baseline and a big +65% label (+1).</strong> 1990 is the
-                    standard baseline in climate policy, so it is easy to defend. The large
-                    label drives the number home.
+                    <strong>1960 baseline and a big +314% label (+1).</strong> Choosing a farther back year, such as 1960, makes the percentage change much higher and therefore more impactful. The large
+                    label drives the number home. While a closer inspection would show that the percentage change is much less when starting from a year in the last few decade, the line is still increasing throughout that entire period, so most viewers will likely not think about this.
                 </li>
                 </ul>
             </section>
@@ -232,8 +241,8 @@
                 <h2>Final Reflection</h2>
 
                 <p> 
-                    Picking what to plot was the easier part however having to make each chart pursuasive without being too obvious was much harder. 
-                    Once the metric was chosen, everything else such as the title, color, and axis followed from it. The main goal was to not make anything too loud or else the readers would stop finding the graph trustowrthy.
+                    Picking what to plot was the easier part, however, having to make each chart persuasive without being too obvious was much harder. 
+                    Once the metric was chosen, everything else such as the title, color, and axis followed from it. The main goal was to not make anything too loud or else the readers would stop finding the graph trustworthy.
                 </p>
 
                 <p>
@@ -243,15 +252,15 @@
 
                 <p>
                     Both charts use real information, and still the reader who saw the "For Proposition" would be leaving with a completely different perspective than the reader who saw the opposite one.
-                    A chart can be misleading without a single false number, it just needs to answer the right question. For example, in our visualizations, the winning chart can't show that total emissions rose 65% and the losing chart
+                    A chart can be misleading without a single false number, it just needs to answer the right question. For example, in our visualizations, the winning chart can't show that total emissions rose 314% and the losing chart
                     isn't showing that the economy grew a  lot faster than emissions per person. Something that was also noticed is readers don't typically check axis ranges or baselines, so the deception also benefits the story without lying.
                 </p>
 
                 <p>
                     We would define ethical analysis and visualization as showing the data fairly, being open to other choices, and not relying on deception or
                     anything that would leave the viewer with false ideas in their mind. Some good boundaries between what's considered acceptable versus misleading in this sense would be whether a reader
-                    is able to see the information your sharing and is able to access the same data. Being private about something that would be important for the reader to know or distorting the information would be misleading.
-                    This includes cutting off the axis that the reader wouldn't notice or making a title that claims something bigger than the data. The short y-axis and the "no peak in sight" label are fairly close to the borders. If this were a real setting, we would have to add a note to both charts.
+                    is able to see the information you're sharing and is able to access the same data. Being private about something that would be important for the reader to know or distorting the information would be misleading.
+                    This includes cutting off the axis that the reader wouldn't notice or making a title that claims something bigger than the data. The tight y-axes and the "no peak in sight" label are fairly close to the borders. If this were a real setting, we would have to add a note to both charts.
                 </p>
 
 
